@@ -52,6 +52,7 @@ class Input extends Component {
         <CardTitle
           title="URL Shortener"/>
         <CardActions>
+          <p>Please type http:// before url</p>
           <TextField
             hintText="http://google.com"
             style={styles.textField}
