@@ -1,21 +1,29 @@
-import { FETCH_SUCCESS, HANDLE_CHANGE } from './actions';
+import { FETCH_SUCCESS, HANDLE_CHANGE, UPDATE_USER_DETAILS } from './actions';
 
 const initalState = {
   input: '',
-  shortUrl: ''
+  shortUrl: '',
+  clicks: 0,
+  details: [],
+  showButton: false
 };
 
 function inputReducer(state = initalState, action) {
   switch(action.type) {
     case FETCH_SUCCESS:
-      console.log(action.shortUrl)
       return Object.assign({}, state, {
-        shortUrl: 'http://' + action.shortUrl
+        shortUrl: 'http://' + action.shortUrl,
+        showButton: true
       })
     case HANDLE_CHANGE:
-      console.log(action.input)
       return Object.assign({}, state, {
         input: action.input
+      })
+    case UPDATE_USER_DETAILS:
+      var newState = state.details
+      return Object.assign({}, state, {
+        clicks: state.clicks + 1,
+        details: newState.concat(action.details)
       })
     default:
       return state;

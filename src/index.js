@@ -13,7 +13,7 @@ import { routerReducer, routerMiddleware } from 'react-router-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import thunk from 'redux-thunk';
 
-// import itemsReducer from './Components/ItemList/reducers';
+import Details from './Components/Details/Details'
 import inputReducer from './Components/Input/reducers';
 
 const rootReducer = combineReducers({
@@ -32,6 +32,7 @@ ReactDOM.render(
       <Router history={history}>
         <div>
           <Route exact path='/' component={App} />
+          <Route exact path='/details' component={Details} />
         </div>
       </Router>
     </Provider>
